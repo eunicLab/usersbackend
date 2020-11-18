@@ -1,14 +1,15 @@
 {
   "name": "users_backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "a crud api",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+ "author": "eunice-nnaji",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
