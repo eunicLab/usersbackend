@@ -5,17 +5,27 @@ var users = [];
 export const createUser = (req, res) => {
   const user = req.body;
   users.push({ ...user, id: uuidv4() });
-  res.send(`A user with name ${user.name}  has been added to database`);
+  res.send({
+    status: '201',
+    message: `A user with name ${user.name}  has been added to database`,
+  });
 };
 
 export const getUsers = (req, res) => {
-  res.send(users);
+  res.send({
+    data: users,
+    status: '200',
+    message: `A list of all Users in the database has been successfully retrieved as requested`,
+  });
 };
 
 export const deleteUser = (req, res) => {
   const { id } = req.params;
   users = users.filter((user) => user.id !== id);
-  res.send(`user with id ${id}  has been deleted from the database`);
+  res.send({
+    status: '200',
+    message: `user with id ${id} has been deleted from the database`,
+  });
 };
 
 export const updateUser = (req, res) => {
@@ -27,5 +37,8 @@ export const updateUser = (req, res) => {
   if (email) user.email = email;
 
   if (phone) user.phone = phone;
-  res.send(`user with id ${id}  has been updated successfully`);
+  res.send({
+    status: '201',
+    message: `user with id ${id} has been updated successfully`,
+  });
 };
